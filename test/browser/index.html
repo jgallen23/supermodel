@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script src="../../dist/model.js"></script>
+    <script src="../../lib/mixins/local-storage.js"></script>
+    <script>
+      var Person = Model.create('Person', {
+        schema: {
+          firstName: '',
+          lastName: ''
+        }
+      });
+      Person.applyMixin(localStorageMixin);
+      var p = new Person({ firstName: 'Greg', lastName: 'Jones' });
+      //p.save();
+      console.log(Person.find());
+    </script>
+  </body>
+</html>
