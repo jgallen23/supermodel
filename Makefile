@@ -1,4 +1,4 @@
-SRC = lib/events.js lib/model.js
+SRC = lib/events.js lib/model.js lib/collection.js
 TEST = test/*.js
 REPORTER = list
 

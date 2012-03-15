@@ -1,12 +1,12 @@
 {
-	"name": "model",
+	"name": "supermodel",
 	"description": "",
 	"version": "0.0.1",
-	"homepage": "https://github.com/jgallen23/model",
+	"homepage": "https://github.com/jgallen23/supermodel",
 	"author": "Greg Allen <@jgaui> (http://jga.me)",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jgallen23/model.git"
+		"url": "https://github.com/jgallen23/supermodel.git"
 	},
 	"dependencies": {
     "aug": "*"
@@ -19,7 +19,7 @@
 	},
 	"keywords": [],
   "clientside": {
-    "name": "Model",
+    "name": "SuperModel",
     "settings": {
       "aug": {
         "modify": false,
