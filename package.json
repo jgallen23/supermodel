@@ -1,6 +1,6 @@
 {
 	"name": "supermodel",
-	"description": "",
+	"description": "A model/collection library for node and browser",
 	"version": "0.0.1",
 	"homepage": "https://github.com/jgallen23/supermodel",
 	"author": "Greg Allen <@jgaui> (http://jga.me)",

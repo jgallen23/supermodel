@@ -182,7 +182,7 @@ Model.prototype.toJSON = function() {
 Model.create = function(name, obj) {
   var Model = function(params) {
     this.model = Model;
-    this._data = aug({}, this.schema, params);
+    this._data = aug(true, {}, this.schema, params);
     if (!this._data._id)
       this._data._id = this.guid();
     if (this.init) {

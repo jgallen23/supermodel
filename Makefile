@@ -17,6 +17,6 @@ test:
 	@NODE_ENV=test ./node_modules/.bin/mocha -R list
 
 model.js: $(SRC)
-	@./node_modules/.bin/clientside > dist/model.js
+	@./node_modules/.bin/clientside > dist/supermodel.js
 
 .PHONY: test preview-docs preview-readme
