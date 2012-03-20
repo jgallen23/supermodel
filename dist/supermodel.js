@@ -1,4 +1,5 @@
 var SuperModel = (function(exports) {
+var cs2 = (function(exports) {
 var aug = function __aug() {
   var args = Array.prototype.slice.call(arguments);
   var deep = false;
@@ -24,9 +25,11 @@ var aug = function __aug() {
   }
   return org;
 };
-if (typeof window === 'undefined') module.exports = aug;
+exports = aug;
 
-var cs2 = (function(exports) {
+return exports;
+})({});
+var cs3 = (function(exports) {
 var Events = function() {
   this.cache = {}; 
 };
@@ -61,8 +64,8 @@ exports = Events;
 
 return exports;
 })({});
-var cs3 = (function(exports) {
-var aug = window.aug;
+var cs4 = (function(exports) {
+var aug = cs2;
 
 var Collection = function(name) {
   this.name = name;
@@ -141,8 +144,8 @@ exports = Collection;
 return exports;
 })({});
 var cs1 = (function(exports) {
-var aug = window.aug;
-var Events = cs2;
+var aug = cs2;
+var Events = cs3;
 
 var Model = function(name) {
   this.modelName = name;
@@ -180,7 +183,7 @@ Model.prototype.toJSON = function() {
 Model.create = function(name, obj) {
   var Model = function(params) {
     this.model = Model;
-    this._data = aug(true, {}, this.schema, params);
+    this._data = aug('deep', {}, obj.schema, params);
     if (!this._data._id)
       this._data._id = this.guid();
     if (this.init) {
@@ -228,7 +231,7 @@ return exports;
 })({});
 var cs0 = (function(exports) {
 exports.Model = cs1;
-exports.Collection = cs3;
+exports.Collection = cs4;
 
 return exports;
 })({});

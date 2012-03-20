@@ -21,10 +21,6 @@
   "clientside": {
     "name": "SuperModel",
     "settings": {
-      "aug": {
-        "modify": false,
-        "id": "window.aug"
-      }
     }
   }
 }
