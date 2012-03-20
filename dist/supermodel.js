@@ -1,32 +1,30 @@
 var SuperModel = (function(exports) {
-/*!
-  * aug.js - A javascript library to extend existing objects and prototypes 
-  * v0.0.1
-  * https://github.com/jgallen23/aug
-  * copyright JGA 2011
-  * MIT License
-  */
-
-!function (name, definition) {
-  if (typeof module != 'undefined' && module.exports) module.exports = definition();
-  else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
-  else this[name] = definition();
-}('aug', function() {
-
 var aug = function __aug() {
   var args = Array.prototype.slice.call(arguments);
+  var deep = false;
   var org = args.shift();
+  var type = '';
+  if (typeof org === 'string' || typeof org === 'boolean') {
+    type = (org === true)?'deep':org;
+    org = args.shift();
+    if (type == 'defaults') {
+      org = aug({}, org); //clone defaults into new object
+      type = 'strict';
+    }
+  }
   for (var i = 0, c = args.length; i < c; i++) {
     var prop = args[i];
     for (var name in prop) {
-      org[name] = prop[name];
+      if (type == 'deep' && typeof prop[name] === 'object' && typeof org[name] !== 'undefined') {
+        aug(type, org[name], prop[name]);
+      } else if (type != 'strict' || (type == 'strict' && typeof org[name] !== 'undefined')) {
+        org[name] = prop[name];
+      }
     }
   }
   return org;
 };
-
-return aug;
-});
+if (typeof window === 'undefined') module.exports = aug;
 
 var cs2 = (function(exports) {
 var Events = function() {
