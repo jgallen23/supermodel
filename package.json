@@ -9,7 +9,7 @@
 		"url": "https://github.com/jgallen23/supermodel.git"
 	},
 	"dependencies": {
-    "aug": "*"
+    "aug": ">=1.0.2"
 	},
 	"devDependencies": {
 		"mocha": "*",
